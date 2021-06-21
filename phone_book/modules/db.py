@@ -58,7 +58,7 @@ def populate_db():
     with open('../../sample_data.csv') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
-            create_record(*row)
+            create_record(1, *row)
 
 
 @handle_exception
