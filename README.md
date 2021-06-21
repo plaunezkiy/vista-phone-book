@@ -10,7 +10,7 @@
 * MariaDB
 
 ## Схема ДБ
-![схема](https://github.com/plaunezkiy/vista-phone-book/db_schema.png)
+![схема](https://github.com/plaunezkiy/vista-phone-book/blob/main/db_schema.PNG)
 
 ## Установка и запуск проекта
 * Склонируйте репозиторий
