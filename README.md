@@ -9,6 +9,9 @@
 * PyQt5
 * MariaDB
 
+## Схема ДБ
+![схема](https://github.com/plaunezkiy/vista-phone-book/db_schema.png)
+
 ## Установка и запуск проекта
 * Склонируйте репозиторий
     * ```git clone https://github.com/plaunezkiy/vista-phone-book.git```
