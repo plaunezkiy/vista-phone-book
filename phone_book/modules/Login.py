@@ -23,10 +23,12 @@ class LoginDialog(QWidget):
 
         self.login_name_entry = QLineEdit()
         self.login_name_entry.setMinimumWidth(250)
+        self.login_name_entry.setPlaceholderText("Имя")
 
         self.login_password_entry = QLineEdit()
         self.login_password_entry.setMinimumWidth(250)
         self.login_password_entry.setEchoMode(QLineEdit.Password)
+        self.login_password_entry.setPlaceholderText("Пароль")
         self.remember_checkbox = QCheckBox("Запомнить меня")
 
         self.load_creds()
@@ -40,16 +42,18 @@ class LoginDialog(QWidget):
 
         login_form = QFormLayout()
         login_form.setLabelAlignment(Qt.AlignLeft)
-        login_form.addRow("Имя:", self.login_name_entry)
-        login_form.addRow("Пароль:", self.login_password_entry)
+        login_form.addRow(self.login_name_entry)
+        login_form.addRow(self.login_password_entry)
 
         connect_button = QPushButton("Войти")
+        connect_button.setProperty("class", "green")
         connect_button.clicked.connect(self.login)
 
         register_button = QPushButton("Регистрация")
         register_button.clicked.connect(self.create_new_user)
 
         cancel_button = QPushButton("Отмена")
+        cancel_button.setProperty("class", "red")
         cancel_button.clicked.connect(exit)
 
         buttons = QHBoxLayout()
@@ -122,14 +126,16 @@ class LoginDialog(QWidget):
         header_label.setAlignment(Qt.AlignCenter)
 
         email_entry = QLineEdit()
+        email_entry.setPlaceholderText("Email")
         dialog_form = QFormLayout()
-        dialog_form.addRow("Email:", email_entry)
+        dialog_form.addRow(email_entry)
 
         reset_button = QPushButton("Сбросить")
         # replace for reset functionality
         reset_button.clicked.connect(lambda: self.validate_email(email_entry.text()))
 
         cancel_button = QPushButton("Отмена")
+        cancel_button.setProperty("class", "red")
         cancel_button.clicked.connect(reset_dialog.close)
 
         buttons_layout = QHBoxLayout()
@@ -173,26 +179,32 @@ class LoginDialog(QWidget):
 
         # entries
         self.new_name_entry = QLineEdit()
+        self.new_name_entry.setPlaceholderText("Имя")
         self.new_email_entry = QLineEdit()
+        self.new_email_entry.setPlaceholderText("Email")
 
         self.new_password_entry = QLineEdit()
         self.new_password_entry.setEchoMode(QLineEdit.Password)
+        self.new_password_entry.setPlaceholderText("Пароль")
         self.new_confirm_password_entry = QLineEdit()
         self.new_confirm_password_entry.setEchoMode(QLineEdit.Password)
+        self.new_confirm_password_entry.setPlaceholderText("Пароль еще раз")
 
         self.birthdate_picker = QDateEdit(calendarPopup=True)
 
         # form
         dialog_form = QFormLayout()
-        dialog_form.addRow("Имя:", self.new_name_entry)
-        dialog_form.addRow("Email:", self.new_email_entry)
+        dialog_form.addRow(self.new_name_entry)
+        dialog_form.addRow(self.new_email_entry)
         dialog_form.addRow("Дата рождения:", self.birthdate_picker)
-        dialog_form.addRow("Пароль", self.new_password_entry)
-        dialog_form.addRow("Повторите пароль:", self.new_confirm_password_entry)
+        dialog_form.addRow(self.new_password_entry)
+        dialog_form.addRow(self.new_confirm_password_entry)
 
         create_acct_button = QPushButton("Зарегестрироваться")
+        create_acct_button.setProperty("class", "green")
         create_acct_button.clicked.connect(self.accept_user_info)
         cancel_button = QPushButton("Отмена")
+        cancel_button.setProperty("class", "red")
         cancel_button.clicked.connect(self.new_user_dialog.close)
         buttons_layout = QHBoxLayout()
         buttons_layout.addWidget(create_acct_button)

@@ -3,11 +3,11 @@ import sys
 
 try:
     conn = mariadb.connect(
-        user="",
-        password="",
-        host="",
+        user="root",
+        password="root",
+        host="localhost",
         port=3306,
-        database=""
+        database="phone_book"
     )
     conn.autocommit = True
 except mariadb.Error as e:
@@ -58,7 +58,7 @@ def populate_db():
     with open('../../sample_data.csv') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
-            create_record(*row)
+            create_record(1, *row)
 
 
 @handle_exception
@@ -175,8 +175,8 @@ def get_records(user_id, letterset):
 
 if __name__ == "__main__":
     #: Uncomment to create tables
-    # init_db()
+    init_db()
 
     #: Uncomment to populate the db with sample data
-    # populate_db()
+    populate_db()
     sys.exit(1)

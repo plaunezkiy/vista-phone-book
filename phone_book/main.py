@@ -7,6 +7,7 @@ from modules.Login import LoginDialog
 from modules.Book import Book
 from modules.Sidebar import Sidebar
 from modules.db import get_records
+from modules.StyleSheet import style_sheet
 
 
 class PhoneBook(QMainWindow):
@@ -70,7 +71,7 @@ class PhoneBook(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.processEvents()
-    # app.setStyleSheet()
+    app.setStyleSheet(style_sheet)
     app.setFont(QFont("Arial", 11))
 
     book = PhoneBook()

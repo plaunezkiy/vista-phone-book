@@ -35,7 +35,9 @@ class RecordFormDialog(QDialog):
 
         self.buttons_box.addButton(QPushButton("Сохранить"), QDialogButtonBox.ButtonRole.AcceptRole)
         self.buttons_box.accepted.connect(self.accept)
-        self.buttons_box.addButton(QPushButton("Отмена"), QDialogButtonBox.ButtonRole.RejectRole)
+        cancel_button = QPushButton("Отмена")
+        cancel_button.setProperty("class", "red")
+        self.buttons_box.addButton(cancel_button, QDialogButtonBox.ButtonRole.RejectRole)
         self.buttons_box.rejected.connect(self.reject)
 
         self.layout.addLayout(dialog_form)
